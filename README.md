@@ -1,5 +1,5 @@
 # Better-Campus
-Git for better canmpus web extention.
+Git for better campus web extention.
 
 # Better Campus 1.2.0
 
