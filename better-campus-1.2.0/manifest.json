@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Better Campus",
+  "version": "1.2.0",
+  "description": "A clean light theme with custom backgrounds and a fully manual GPA calculator, layered on top of the Infinite Campus student portal.",
+  "minimum_chrome_version": "111",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Better Campus",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.infinitecampus.org/campus/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.infinitecampus.org/campus/*"
+      ],
+      "js": [
+        "bc-theme.js",
+        "bc-gpa-engine.js",
+        "bc-gpa-ui.js",
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
